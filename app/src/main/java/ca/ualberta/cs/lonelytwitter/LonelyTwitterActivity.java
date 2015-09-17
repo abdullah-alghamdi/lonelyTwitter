@@ -23,12 +23,29 @@ public class LonelyTwitterActivity extends Activity {
 	private static final String FILENAME = "file.sav";
 	private EditText bodyText;
 	private ListView oldTweetsList;
-	
+
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+
+		ArrayList<Tweet> tweetList = new ArrayList<Tweet>();
+
+		try{
+		Tweet t = new ImportantTweet("");
+
+			t.setText("");
+		} catch (IOException e){
+			throw new RuntimeException(e);
+		}
+
+		Mood myday = new Excited("");
+
+		myday.isSleepy();
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+
 
 		bodyText = (EditText) findViewById(R.id.body);
 		Button saveButton = (Button) findViewById(R.id.save);
